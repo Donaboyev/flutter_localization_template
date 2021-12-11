@@ -1,0 +1,34 @@
+{
+  "githubRepo": "{repoName} GitHub repository",
+  "@githubRepo": {
+    "description": "Represents a link to a GitHub repository.",
+    "placeholders": {
+      "repoName": {
+        "example": "Flutter Gallery"
+      }
+    }
+  },
+  "rallyAccountAmount": "{accountName} account {accountNumber} with {amount}.",
+  "@rallyAccountAmount": {
+    "description": "Semantics label for row with bank account name (for example checking) and its bank account number (for example 123), with how much money is deposited in it (for example $12).",
+    "placeholders": {
+      "accountName": {
+        "example": "Home Savings"
+      },
+      "accountNumber": {
+        "example": "1234"
+      },
+      "amount": {
+        "example": "$12"
+      }
+    }
+  },
+  "centerText": "Center text",
+  "@centerText": {
+    "description": "Center text"
+  },
+  "localizationApp": "Localization App",
+  "@localizationApp": {
+    "description": "Localization App"
+  }
+}

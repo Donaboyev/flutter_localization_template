@@ -1,0 +1,6 @@
+{
+  "githubRepo": "репозиторий GitHub {repoName}",
+  "rallyAccountAmount": "Счет \"{accountName}\" с номером {accountNumber}. Баланс: {amount}.",
+  "centerText": "Текст по центру",
+  "localizationApp": "Приложение для локализации"
+}

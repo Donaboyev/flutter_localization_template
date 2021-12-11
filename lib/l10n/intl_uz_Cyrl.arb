@@ -1,0 +1,6 @@
+{
+  "githubRepo": "{repoName} GitHub репозиторийси",
+  "rallyAccountAmount": "{accountNumber} рақамли {accountName} ҳисобида {amount} бор.",
+  "centerText": "Марказдаги матн",
+  "localizationApp": "Маҳаллийлаштириш иловаси"
+}
