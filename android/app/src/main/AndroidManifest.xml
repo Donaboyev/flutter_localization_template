@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.donaboyev.localization_template">
    <application
-        android:label="localization_template"
+        android:label="Localization Template"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
