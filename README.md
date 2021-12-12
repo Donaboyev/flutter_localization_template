@@ -12,5 +12,3 @@
 
 [<img src="https://user-images.githubusercontent.com/56734609/114071381-7ccbc480-98ba-11eb-959f-674cb3a25e1e.png" width="200" height="200">](https://youtu.be/Dd2qUO5BD98 "On Youtube")
 
-
-Inspired and followed by [this](https://www.udemy.com/course/to-do-app-clean-architecture-android-development-kotlin/) and [this](https://dribbble.com/shots/14153121-ToDo-App-Dark-Theme)
