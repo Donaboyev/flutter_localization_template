@@ -40,23 +40,15 @@ class LocalizationApp extends StatelessWidget {
             onSelected: (value) {
               switch (value) {
                 case localeUz:
-                  LocalSource.instance.setLocaleCode(localeCode: localeUz);
-                  LocalSource.instance.setLocaleScriptCode('');
                   provider.setLocale(localeUz, '');
                   break;
                 case localeScriptCyrl:
-                  LocalSource.instance.setLocaleCode(localeCode: localeUz);
-                  LocalSource.instance.setLocaleScriptCode(localeScriptCyrl);
                   provider.setLocale(localeUz, localeScriptCyrl);
                   break;
                 case localeRu:
-                  LocalSource.instance.setLocaleCode(localeCode: localeRu);
-                  LocalSource.instance.setLocaleScriptCode('');
                   provider.setLocale(localeRu, '');
                   break;
                 case localeEn:
-                  LocalSource.instance.setLocaleCode(localeCode: localeEn);
-                  LocalSource.instance.setLocaleScriptCode('');
                   provider.setLocale(localeEn, '');
                   break;
               }

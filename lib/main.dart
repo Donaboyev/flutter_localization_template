@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:localization_template/src/app.dart';
 import 'package:localization_template/src/bloc/locale_provider.dart';
 import 'package:localization_template/src/data/db/local_source.dart';
@@ -9,7 +8,6 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GoogleFonts.config.allowRuntimeFetching = false;
   await LocalSource.getInstance();
   runApp(const MyApp());
 }
