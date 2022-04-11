@@ -15,7 +15,10 @@ class LocalizationApp extends StatelessWidget {
     final provider = Provider.of<AppProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(T?.localizationApp ?? ''),
+        title: Text(
+          T?.localizationApp ?? '',
+          style: Theme.of(context).textTheme.headline4,
+        ),
         actions: [
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
@@ -62,20 +65,49 @@ class LocalizationApp extends StatelessWidget {
           children: [
             Text(
               T?.centerText ?? '',
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
             ),
             const SizedBox(height: 26),
-            Switch(
-              value: provider.themeMode == ThemeMode.dark,
-              onChanged: (value) {
-                debugPrint('switch value: $value');
-                provider.setTheme(value ? ThemeMode.dark : ThemeMode.light);
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Radio<ThemeMode>(
+                  value: ThemeMode.dark,
+                  groupValue: provider.themeMode,
+                  onChanged: (ThemeMode? value) {
+                    debugPrint('==> dark theme button $value');
+                    provider.setTheme(value ?? ThemeMode.dark);
+                  },
+                ),
+                const Text('Dark theme'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Radio<ThemeMode>(
+                  value: ThemeMode.light,
+                  groupValue: provider.themeMode,
+                  onChanged: (ThemeMode? value) {
+                    debugPrint('==> light theme button $value');
+                    provider.setTheme(value ?? ThemeMode.light);
+                  },
+                ),
+                const Text('Light theme'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Radio<ThemeMode>(
+                  value: ThemeMode.system,
+                  groupValue: provider.themeMode,
+                  onChanged: (ThemeMode? value) {
+                    debugPrint('==> light theme button $value');
+                    provider.setTheme(value ?? ThemeMode.system);
+                  },
+                ),
+                const Text('System theme'),
+              ],
             ),
           ],
         ),

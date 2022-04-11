@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
@@ -28,9 +29,31 @@ class MyApp extends StatelessWidget {
           themeMode: provider.themeMode,
           theme: ThemeData(
             primaryColor: Colors.blue,
+            colorScheme: const ColorScheme.light(
+              primary: Colors.blueGrey,
+              background: Colors.white,
+            ),
+            textTheme: TextTheme(
+              headline4: GoogleFonts.poppins(
+                fontSize: 36,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
           ),
           darkTheme: ThemeData(
             primaryColor: Colors.black,
+            colorScheme: const ColorScheme.light(
+              primary: Colors.grey,
+              background: Colors.black,
+            ),
+            textTheme: TextTheme(
+              headline4: GoogleFonts.poppins(
+                fontSize: 36,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
           ),
           localizationsDelegates: const [
             ...AppLocalizations.localizationsDelegates,
