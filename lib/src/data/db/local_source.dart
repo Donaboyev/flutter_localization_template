@@ -1,5 +1,6 @@
-import 'package:localization_template/src/data/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../app_constants.dart';
 
 class LocalSource {
   static SharedPreferences? _preferences;
@@ -42,6 +43,11 @@ class LocalSource {
       await _preferences?.setString(keyLocaleScriptCode, script);
 
   String getScriptCode() => _preferences?.getString(keyLocaleScriptCode) ?? '';
+
+  Future<void> setTheme(String theme) async =>
+      await _preferences?.setString(keyTheme, theme);
+
+  String getTheme() => _preferences?.getString(keyTheme) ?? '';
 
   Future<void> clear() async {
     await _preferences!.clear();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:localization_template/src/bloc/locale_provider.dart';
-import 'package:localization_template/src/data/app_constants.dart';
-import 'package:localization_template/src/data/db/local_source.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'data/app_constants.dart';
+import 'bloc/app_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LocalizationApp extends StatelessWidget {
   const LocalizationApp({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class LocalizationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final T = AppLocalizations.of(context);
-    final provider = Provider.of<LocaleProvider>(context);
+    final provider = Provider.of<AppProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(T?.localizationApp ?? ''),
@@ -57,14 +57,27 @@ class LocalizationApp extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text(
-          T?.centerText ?? '',
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              T?.centerText ?? '',
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
-          ),
+            const SizedBox(height: 26),
+            Switch(
+              value: provider.themeMode == ThemeMode.dark,
+              onChanged: (value) {
+                debugPrint('switch value: $value');
+                provider.setTheme(value ? ThemeMode.dark : ThemeMode.light);
+              },
+            ),
+          ],
         ),
       ),
     );

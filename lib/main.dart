@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
-import 'package:localization_template/src/app.dart';
-import 'package:localization_template/src/bloc/locale_provider.dart';
-import 'package:localization_template/src/data/db/local_source.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+
+import 'src/app.dart';
+import 'src/bloc/app_provider.dart';
+import 'src/data/db/local_source.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,13 +19,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => LocaleProvider(),
+      create: (_) => AppProvider(),
       builder: (context, child) {
-        final provider = Provider.of<LocaleProvider>(context);
+        final provider = Provider.of<AppProvider>(context);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(primarySwatch: Colors.blue),
+          themeMode: provider.themeMode,
+          theme: ThemeData(
+            primaryColor: Colors.blue,
+          ),
+          darkTheme: ThemeData(
+            primaryColor: Colors.black,
+          ),
           localizationsDelegates: const [
             ...AppLocalizations.localizationsDelegates,
             LocaleNamesLocalizationsDelegate()
